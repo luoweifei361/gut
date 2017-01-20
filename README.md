@@ -1,7 +1,5 @@
-# gut
 
 ## windows安装步骤
-
 
 1. 下载`gut-1.0-SNAPSHOT.jar` 到新建的`C:\Users\Administrator\Documents\gut`中
 2. 创建`gut.bat`
@@ -13,10 +11,6 @@ gut.bat文件基本格式为：
 java -cp C:\Users\Administrator\Documents\gut\gut-1.0-SNAPSHOT.jar org.lufei.GitTools %1 %2 %3 %4 %5 %6 %7 %8
 
 ```
-
-## 命令
-
-运行`gut`查看支持的命令
 
 
 ## mac安装步骤
@@ -31,25 +25,25 @@ java -cp C:\Users\Administrator\Documents\gut\gut-1.0-SNAPSHOT.jar org.lufei.Git
 alias gut=" java -cp /Users/lufei/work/git-tools/target/gut-1.0-SNAPSHOT.jar org.lufei.GitTools "
 ```
 
-## 命令
+####命令
 运行`gut`查看支持的命令
 
-# 使用帮助
+####使用帮助
 gut
 gut help clone
 
-#clone wacai项目的所有分支包括branchList中的所有分支
-cd work
-gut clone -p wacai http://110.249.162.18:8090/tfs/DefaultCollection/KLWK/_git/mvn-pom
+####clone wacai项目的所有分支包括branchList中的所有分支
+`cd work`
+`gut clone -p wacai http://110.249.162.18:8090/tfs/DefaultCollection/KLWK/_git/mvn-pom`
 
-#查看mvn-pom及子目录仓库的所有状态
-cd mvn-pom
-gut status
+####查看mvn-pom及子目录仓库的所有状态
+`cd mvn-pom`
+`gut status`
 
-#拉取更新mvn-pom及子目录仓库的所有状态
-cd mvn-pom
-gut pull
+####拉取更新mvn-pom及子目录仓库的所有状态
+`cd mvn-pom`
+`gut pull`
 
-#推送mvn-pom及子目录仓库到远程
-cd mvn-pom
-gut push
+####推送mvn-pom及子目录仓库到远程
+`cd mvn-pom`
+`gut push`
