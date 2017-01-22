@@ -18,11 +18,11 @@ public class Tool {
     public Tool() {
     }
 
-    public static String call(File workDir, String... cmd) throws Exception {
+    public static String call(File workDir,String showLog, String... cmd) throws Exception {
         ProcessBuilder processBuilder = new ProcessBuilder(cmd);
         processBuilder.directory(workDir);
-        System.out.println(String.format("==============%s===================", new Object[]{workDir.getName()
-        }));
+        showLog= showLog==null?workDir.getName():showLog;
+        System.out.println(String.format("==============%s===================",showLog ));
         Process process = processBuilder.start();
         int retCode = process.waitFor();
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -98,7 +98,7 @@ public class Tool {
         System.arraycopy(option, 0, desc, 1, option.length);
         for (File file : files) {
             try {
-                Tool.call(file.getAbsoluteFile(), desc);
+                Tool.call(file.getAbsoluteFile(),null, desc);
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());

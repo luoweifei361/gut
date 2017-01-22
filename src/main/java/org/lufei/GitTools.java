@@ -33,7 +33,6 @@ public class GitTools {
         GitTools.getInstance().register(new Checkout());
         GitTools.getInstance().register(new Branch());
         GitTools.getInstance().register(new Merge());
-        GitTools.getInstance().register(new Stash());
     }
 
 

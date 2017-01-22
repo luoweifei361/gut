@@ -61,6 +61,7 @@ public class Clone implements Cmd {
         if (Arrays.asList(options).contains("-b")) {
             //当前目录=mvn-pom
             cloneAndSwitch(dir, options[2]);
+            return;
         }
         // gut clone(0) http://110.249.162.18:8090/tfs/DefaultCollection/KLWK/_git/(1) 在mvn-pom下执行
         clone(dir, options[1]);
@@ -77,14 +78,13 @@ public class Clone implements Cmd {
             try {
                 //git clone -b master2 server_url .
                 String branchName = args[1];
-                Tool.call(workDir, "git", "clone", "-b", branchName, gitUrl);
+                Tool.call(workDir,gitReps, "git", "clone", "-b", branchName, gitUrl);
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println("语法错误!");
-        System.out.println(help());
+
     }
 
 
@@ -99,14 +99,12 @@ public class Clone implements Cmd {
             try {
                 //git clone -b master2 server_url .
                 String branchName = args[1];
-                Tool.call(workDir, "git", "clone", gitUrl);
+                Tool.call(workDir,gitReps, "git", "clone", gitUrl);
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
             }
         }
-        System.out.println("语法错误!");
-        System.out.println(help());
     }
 
 
@@ -117,7 +115,8 @@ public class Clone implements Cmd {
         desc[0] = "git";
         System.arraycopy(option, 0, desc, 1, option.length);
         try {
-            return Tool.call(new File(path).getAbsoluteFile(), desc);
+            File absoluteFile = new File(path).getAbsoluteFile();
+            return Tool.call(absoluteFile,absoluteFile.getName(), desc);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e.getMessage());

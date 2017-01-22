@@ -32,7 +32,7 @@ public class Cf extends AbstractCmd {
             try {
                 //git clone -b master2 server_url .
                 String branchName = args[1];
-                Tool.call(workDir, "git", "checkout", "-b", branchName);
+                Tool.call(workDir,workDir.getName(), "git", "checkout", "-b", branchName);
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println(e.getMessage());
